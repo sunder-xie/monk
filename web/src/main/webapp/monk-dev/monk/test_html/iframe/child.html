@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>child</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    <link href="http://127.0.0.1:9866//monk-dev/resources/common/bootstrap-modal/css/modal.css" rel="stylesheet" type="text/css"/>
+    <link href="http://127.0.0.1:9866//monk-dev/resources/common/chat-common.css" rel="stylesheet" type="text/css">
+</head>
+<body >
+    <span id="show"></span>
+    <span id="show_list"></span>
+
+    <button id="alert">alert</button>
+    <button id="close_top">close_top</button>
+    <button id="close_all">close_all</button>
+
+    <button id="open_new">open_new</button>
+
+    <button id="alert_modal">alert_modal</button>
+    <div id="chat_from_monk_modal" class="monk_chat_modal modal fade modal-scroll" tabindex="-1" data-keyboard="false" aria-hidden="true" style="top: 0%; margin-top: 0px; display: none;">  <a href="#" class="model-close btn red" data-dismiss="modal" aria-hidden="true">  <img src="http://127.0.0.1:9866//img/other/portlet-remove-icon-white.png">  </a>  <div class="modal-section">  <div class="modal-header">  <h4 class="modal-title">聊天页面被拦截，需要手动调整，操作如下：</h4>  </div>  <div class="modal-body">  <div class="cut_show" style="height:600px !important;">  <div><span>第一步：找到网址输入框最右侧的拦截图标</span></div>  <div><img src="http://127.0.0.1:9866//img/hold/1-find.png"></div>  <div><span>第二步：点击拦截图标，选择始终允许</span></div>  <div><img src="http://127.0.0.1:9866//img/hold/3-choose.png"></div>  <div><span>第三步：点击聊天页面地址，打开聊天页面</span></div>  <div><img src="http://127.0.0.1:9866//img/hold/4-open.png"></div>  </div>  </div>  </div> </div>
+</body>
+
+<script src="http://127.0.0.1:9866//monk-dev/resources/jquery.min.js" type="text/javascript"></script>
+
+<script src="/monk-dev/resources/common/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript" ></script>
+<script src="/monk-dev/resources/common/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript" ></script>
+
+<!--<script src="/monk-dev/resources/js/chat/chat-iframe.js" type="text/javascript"></script>-->
+<script>
+
+    $("#chat_from_monk_modal").modal("hide");
+    $("#alert_modal").click(function(){
+        $("#chat_from_monk_modal").modal("show");
+    })
+
+    function wish_list_func(result_map){
+        //当前聊天对象的主键，若是uc 则为shopid，若是lop 则为sellerid
+        var to_sys_id = result_map['to_sys_id'];
+        var wish_list = result_map['wish_list'];
+
+        $("#show").text(to_sys_id);
+        $("#show_list").text(JSON.stringify(wish_list));
+    }
+
+    TimIframeUtilForLOP.todayWishList(wish_list_func);
+
+    $("#close_top").click(function(){
+        TimIframeUtil.closeTopIframe();
+    });
+
+    $("#close_all").click(function(){
+        TimIframeUtil.closeChatWindow();
+    });
+
+    $("#alert").click(function(){
+        var title = "弹框的头是我";
+        var content = "<span>中心内容</span>";
+
+        TimIframeUtil.alertFunc(title,content);
+    });
+
+    $("#open_new").click(function(){
+        window.opener.location.href = "http://tool.oschina.net/apidocs/apidoc?api=jquery";
+        window.close();
+    });
+</script>
+
+</html>

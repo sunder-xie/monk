@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.tqmall.data</groupId>
+    <artifactId>monk-client</artifactId>
+    <packaging>jar</packaging>
+
+    <!-- client版本 1.0.1-->
+    <version>1.0.1</version>
+    <!--<version>1.0.0-SNAPSHOT</version>-->
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.tqmall.core</groupId>
+            <artifactId>tqmall-core-common</artifactId>
+            <version>1.0.4-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>tqmall-snapshots</id>
+            <name>tqmall snapshots</name>
+            <url>http://build.tqmall.com/nexus/content/repositories/snapshots
+            </url>
+        </snapshotRepository>
+        <repository>
+            <id>tqmall-releases</id>
+            <name>tqmall releases</name>
+            <url>http://build.tqmall.com/nexus/content/repositories/releases
+            </url>
+        </repository>
+    </distributionManagement>
+
+
+
+</project>

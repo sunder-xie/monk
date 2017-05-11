@@ -1,0 +1,40 @@
+jdbc.url              = ${jdbc.url}
+jdbc.username         = ${jdbc.username}
+jdbc.password         = ${jdbc.password}
+
+#前端版本（本地开发：monk-dev，服务器上：monk-release）
+web.version=${web.version}
+
+
+
+#=======当前环境-防止不同环境的uid用户串聊，添加前缀========
+# dev test stable online
+project.version = ${project.version}
+
+# 不同环境的appkey／secret
+ali.app.key = ${ali.app.key}
+ali.app.secret = ${ali.app.secret}
+
+#=======socket =================
+#js 访问的socket地址，可域名或host:host
+js_socket_url=${js_socket_url}
+
+# host地址
+socket.host = ${socket.host}
+#ip端口号
+socket.port = ${socket.port}
+
+
+#===============dubbo==================
+zookeeper.address = ${zookeeper.address}
+dubbo.port = ${dubbo.port}
+dubbo.provider.version = ${dubbo.provider.version}
+
+dubbo.uc.service.version = ${dubbo.uc.service.version}
+dubbo.stall.service.version = ${dubbo.stall.service.version}
+
+
+#=============redis============
+redis.host = ${redis.host}
+
+

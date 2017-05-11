@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config description="">
+    <group name="default">
+        <!--jdbc-->
+        <property name="jdbc.url"
+                  defaultValue="jdbc:mysql://127.0.0.1:3306/monk?characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"
+                  description="JDBC URL"/>
+        <property name="jdbc.username" defaultValue="root"
+                  description="JDBC username"/>
+        <property name="jdbc.password" defaultValue="root"
+                  description="JDBC password"/>
+
+        <!-- 前端版本（本地开发：monk-dev，服务器上：monk-release） -->
+        <property name="web.version" defaultValue="monk-release"
+                  description="前端版本"/>
+
+        <!--#=======当前环境-防止不同环境的uid用户串聊，添加前缀========-->
+        <property name="project.version" defaultValue="dev"
+                  description="环境前缀--给用户uid生成使用"/>
+
+        <property name="ali.app.key" defaultValue="23381519"
+                  description="不同环境的appKey不同"/>
+        <property name="ali.app.secret" defaultValue="ali.app.secret"
+                  description="appkey 对应的secret"/>
+
+        <!--socket-->
+        <property name="js_socket_url" defaultValue="http://127.0.0.1:19333"
+                  description="暂时无用，js 访问的socket地址，可域名或host:host"/>
+        <property name="socket.host" defaultValue="127.0.0.1"
+                  description="暂时无用，host地址"/>
+        <property name="socket.port" defaultValue="19333"
+                  description="暂时无用，socket端口号"/>
+
+
+        <!-- dubbo -->
+        <property name="zookeeper.address" defaultValue="127.0.0.1:2182"/>
+        <property name="dubbo.port" defaultValue="19104" description="dubbo 端口号"/>
+        <property name="dubbo.provider.version" defaultValue="1.0.0.local" description="对外提供的版本号"/>
+
+        <property name="dubbo.uc.service.version" defaultValue="1.0.0.daily" description="uc 版本号"/>
+        <property name="dubbo.stall.service.version" defaultValue="1.0.0.daily" description="stall 版本号"/>
+
+        <!-- redis -->
+        <property name="redis.host" defaultValue="redis://MySQL_Server:root@127.0.0.1:6379/31"
+                  description="redis"/>
+
+    </group>
+    <script>
+        <generate template="application.properties.vm"
+                  destfile="/WEB-INF/classes/application.properties"
+                  charset="UTF-8"/>
+    </script>
+</config>

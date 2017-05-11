@@ -1,0 +1,20 @@
+CREATE TABLE `im_user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `is_deleted` char(1) DEFAULT 'N' COMMENT '是否删除，N:没删除 Y:有删除',
+  `gmt_create` datetime NOT NULL DEFAULT '1970-01-01 12:00:00' COMMENT '创建时间',
+  `gmt_modified` datetime DEFAULT '1970-01-01 12:00:00' COMMENT '更新时间',
+  `creator` int(11) NOT NULL DEFAULT '0' COMMENT '创建人，0表示无创建人值',
+  `modifier` int(11) NOT NULL DEFAULT '0' COMMENT '修改人,如果为0则表示纪录未修改',
+  `sys_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '外部接入的系统的用户表主键',
+  `sys_name` varchar(20) NOT NULL DEFAULT '' COMMENT '外部系统名称',
+  `ali_uid` varchar(250) NOT NULL DEFAULT '' COMMENT '阿里云旺的用户uid,所有用户的唯一标识，规则：环境名+im项目名+外部系统名+外部系统主键 例如:testMONKLOP1（测试环境+monk+系统名+那个系统的id）',
+  `ali_password` varchar(100) NOT NULL DEFAULT '' COMMENT '阿里云旺的密码',
+  `user_name` varchar(100) NOT NULL DEFAULT '' COMMENT '用户名--详细',
+  `user_nick_name` varchar(50) NOT NULL DEFAULT '' COMMENT '用户名称---简短名称（昵称）',
+  `user_pic` varchar(100) NOT NULL DEFAULT '' COMMENT '用户头像地址',
+  `user_phone` varchar(100) NOT NULL DEFAULT '' COMMENT '手机号码',
+  `user_type` tinyint(11) unsigned NOT NULL DEFAULT '0' COMMENT '1:车主，2:维修店，3:供应商，4:厂商，5:保险公司，6:二手车商，7:金融公司，8:档口客服，9:云修客服，10:云配客服，11:维修技工，12:物流司机',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `un_ali_uid` (`ali_uid`),
+  KEY `idx_sysid` (`sys_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='im的用户基础表-存云旺用户名密码和其他系统的基础用户数据';

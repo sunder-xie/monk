@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>云旺性能测试1</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+</head>
+<body >
+    <h4>登录重试次数</h4>
+    总次数：
+    <span id="login_all_num">0</span>
+    成功次数：
+    <span id="login_success_num">0</span>
+    失败次数：
+    <span id="login_fail_num">0</span>
+
+    <h4>每秒获得联系人的联系人列表</h4>
+    总次数：
+    <span id="recent_all_num">0</span>
+    成功次数：
+    <span id="recent_success_num">0</span>
+    失败次数：
+    <span id="recent_fail_num">0</span>
+</body>
+
+<!--<script src="http://120.26.105.99:19101/monk-dev/resources/jquery.min.js" type="text/javascript"></script>-->
+<!--<script src="https://g.alicdn.com/aliww/h5.imsdk/2.1.4/scripts/yw/wsdk.js" charset="utf-8"></script>-->
+
+
+<script>
+    function test1(){
+
+        setTimeout(function(){
+            console.log("12312");
+            return true;
+        },3000);
+    }
+
+    if(test1()){
+        console.log("true");
+    }else{
+        console.log("false");
+    }
+
+    console.log("hhhh");
+
+//    var sdk = new WSDK();
+//
+//    var uid = "test3";
+//    var password = "123";
+//    login();
+//
+//    function logout(){
+//
+//        var logout_func = sdk.Base.logout;
+//        if($.isFunction(logout_func)){
+//
+//            sdk.Base.logout({
+//                success:function(data){
+//                    console.log("log out success")
+//                },
+//                error: function (data) {
+//                    console.log("log out error")
+//                }
+//            });
+//        }
+//    }
+//
+//    var q;
+//    function login(){
+//        $("#login_all_num").text(Number($("#login_all_num").text())+1);
+//        sdk.Base.login({
+//            uid: uid,
+//            appkey: '23332316',
+//            credential: password,
+//            timeout: 2 * 60 * 1000,
+//            success: function (data) {
+//                console.log('login success', data);
+//                logout();
+//                $("#login_success_num").text(Number($("#login_success_num").text())+1);
+//            },
+//            error: function (error) {
+//                console.log('login fail', error);
+//                $("#login_fail_num").text(Number($("#login_fail_num").text())+1);
+//            }
+//        });
+//    }
+//
+//    function listen(){
+//        //监听所有的聊天内容
+//        sdk.Event.on('START_RECEIVE_ALL_MSG', function (data) {
+//            console.log("当前聊天对象的所有内容：");
+//            console.log(data);
+//        });
+//        sdk.Base.startListenAllMsg();
+//    }
+//
+//    function getRecentPeople(){
+//        $("#recent_all_num").text(Number($("#recent_all_num").text())+1);
+//
+//        sdk.Base.getRecentContact({
+//            count: 1,
+//            success: function (data) {
+//                console.log('get recent contact success', data);
+//                $("#recent_success_num").text(Number($("#recent_success_num").text())+1);
+//            },
+//            error: function (error) {
+//                console.log('get recent contact fail', error);
+//                $("#recent_fail_num").text(Number($("#recent_fail_num").text())+1);
+//                logout();
+//                login();
+//            }
+//        });
+//    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>关闭和刷新测试页面</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+    </head>
+    <body>
+
+
+
+    </body>
+
+
+
+    <script src="/monk-dev/resources/jquery.min.js" type="text/javascript"></script>
+
+    <!-- endbuild -->
+        <script>
+
+            window.onbeforeunload=function(e){
+                var msg='您网页上有东西未保存';
+
+
+                if (event.clientX > document.body.clientWidth && event.clientY < 0 || event.altKey) {
+
+                    return ("关闭页面1~~~~~");
+                }
+                //用户点击任务栏，右键关闭。s或是按alt+F4关闭
+                else if (event.clientY > document.body.clientHeight || event.altKey) {
+
+                    return ("关闭页面2~~~~~");
+                }
+                //其他情况为刷新
+                else {
+                    return ("刷新页面~~~~~");
+                }
+
+            };
+
+
+        </script>
+
+
+
+</html>

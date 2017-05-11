@@ -1,0 +1,344 @@
+#tqmall-chat-section{
+    /*绝对定位*/
+    position:fixed;
+    right:0;
+    bottom:0;
+
+    height:100%;
+    width:100%;
+    border: 1px #d9d9d9 solid;
+}
+#tqmall-chat-section .center{
+    text-align: center;
+}
+
+/*聊天的布局*/
+#tqmall-chat-section .row{
+    height:100%;
+}
+#tqmall-chat-section .col{
+    position: relative;
+    min-height: 1px;
+    float: left;
+
+    height:100%;
+    width: 100%;
+}
+#tqmall-chat-section .col-left{
+    width: 10%;
+    background-color: #3B3C42;
+}
+#tqmall-chat-section .col-90{
+    width: 90%;
+}
+
+#tqmall-chat-section .col_chat_list{
+    width: 15%;
+}
+#tqmall-chat-section .col_chat_content{
+    width:35%;
+    border-right: 1px solid #D9D9D9;
+}
+#tqmall-chat-section .col_ext{
+    width:50%;
+}
+
+
+
+/*图片*/
+#tqmall-chat-section img{
+    vertical-align: middle;
+    border: 0;
+    max-width: none;
+    margin: 10px 0;
+    height: 40px;
+    display: inline-block;
+}
+#tqmall-chat-section .img-circle {
+    border-radius: 100%;
+}
+
+
+/*===========左侧==============*/
+/*用户名称*/
+#tqmall-chat-section .username{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+}
+#tqmall-chat-section .headername{
+    font-size: 14px;
+    color:white;
+    border-bottom: 2px solid #5b9bd1;
+    padding-bottom: 3px;
+}
+
+#tqmall-chat-section .nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+#tqmall-chat-section .chat_tab>li, #tqmall-chat-section .chat_tab>li>span {
+    display: block;
+    position: relative;
+    color: #97b1c3;
+    font-size: 38px;
+    margin: 16px 0;
+}
+#tqmall-chat-section .chat_tab>li.active>span {
+    color: #4F9FE2;
+}
+
+
+/*当中联系人和聊天内容*/
+#tqmall-chat-section .chat_people{
+    margin-top: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /*跟主容器高度保持一致*/
+    height: 100%;
+}
+
+#tqmall-chat-section .chat_people>li{
+    position: relative;
+    display: -webkit-box;
+    /*margin: 3px 3px;*/
+    padding-left: 7px;
+    border-bottom: 1px #d9d9d9 solid;
+}
+
+#tqmall-chat-section .chat_people>li>span{
+    color: black;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+#tqmall-chat-section .chat_people>li.active,
+#tqmall-chat-section .chat_people>li:active,
+#tqmall-chat-section .chat_people>li:hover{
+    background-color: #75869B;
+    cursor:pointer;
+}
+#tqmall-chat-section .chat_people>li.active>span,
+#tqmall-chat-section .chat_people>li:active>span,
+#tqmall-chat-section .chat_people>li:hover>span {
+    color: white;
+}
+#tqmall-chat-section .chat_people .username{
+    position: absolute;
+    left: 69px;
+    top: 23px;
+}
+
+
+/*右侧实际聊天内容*/
+#tqmall-chat-section .chat_heard{
+    background-color: white;
+    border-bottom: 1px #d9d9d9 solid;
+    padding-left: 10px;
+    height: 12%;
+}
+#tqmall-chat-section .chat_content{
+    background-color: white;
+    border-bottom: 1px #d9d9d9 solid;
+    height: 68%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/*右侧内容主体*/
+#tqmall-chat-section .chat_msg_wrap{
+    width: 80%;
+    padding: 10px 0;
+    overflow: hidden;
+}
+#tqmall-chat-section .chat_msg_wrap .chat_msg{
+    word-break: break-all;
+    margin-top: -3px;
+}
+#tqmall-chat-section .chat_msg_wrap .chat-msg-time{
+    color: #d0d0d0;
+    font-size: 12px;
+    line-height: 12px;
+    margin-bottom: 4px;
+}
+#tqmall-chat-section .chat_msg_wrap .chat-msg-inner{
+    position: relative;
+    padding: 6px;
+    border: 1px solid #ececec;
+    border-radius: 3px;
+    color: #4a4a4a;
+}
+
+#tqmall-chat-section .chat_msg_wrap .chat-arr {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 6px solid;
+}
+
+#tqmall-chat-section .chat_r{
+    margin-right: 10px;
+    float: right;
+}
+
+#tqmall-chat-section .chat_r > img,
+#tqmall-chat-section .chat_r .chat-msg-inner{
+    float: right;
+    margin: 0;
+}
+#tqmall-chat-section .chat_r .chat_msg{
+    margin-right: 50px;
+}
+#tqmall-chat-section .chat_r .chat-msg-time{
+    text-align: right;
+}
+#tqmall-chat-section .chat_r .chat-msg-inner{
+    background: #4F9FE2;
+    color: white;
+}
+#tqmall-chat-section .chat_r .chat-arr{
+    right: -6px;
+    top: 8px;
+    border-color: #4F9FE2 transparent transparent;
+}
+
+
+#tqmall-chat-section .chat_l{
+    margin-left: 10px;
+    float: left;
+}
+#tqmall-chat-section .chat_l > img,
+#tqmall-chat-section .chat_l .chat-msg-inner{
+    float: left;
+    margin: 0;
+
+}
+#tqmall-chat-section .chat_l .chat_msg{
+    margin-left: 50px;
+}
+#tqmall-chat-section .chat_l .chat-msg-time{
+    text-align: left;
+}
+#tqmall-chat-section .chat_l .chat-msg-inner{
+    background-color: #ececec;
+}
+#tqmall-chat-section .chat_l .chat-arr{
+    left: -6px;
+    top: 8px;
+    border-color: #ececec transparent transparent;
+}
+
+
+/*输入框*/
+#tqmall-chat-section .chat_input_div{
+    height: 20%;
+}
+#tqmall-chat-section .chat_input_div>.chat_input_util{
+    margin-top: 1%;
+}
+#tqmall-chat-section .chat_input_div>.chat_input_util>span{
+    padding-left: 10px;
+    color: #696868;
+}
+#tqmall-chat-section .chat_input_div>textarea{
+    height:78%;
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: 0;
+    background: #fff;
+    overflow: auto;
+    padding: 0;
+}
+
+
+/*关闭按钮*/
+#tqmall-chat-section .chat_tools{
+    margin-top: 2px;
+    float: right;
+    display: inline-block;
+    padding: 19px 26px 13px 0;
+}
+#tqmall-chat-section .chat_tools a{
+    display: inline-block;
+    height: 16px;
+    margin-left: 5px;
+    opacity: 1;
+}
+#tqmall-chat-section .chat_tools .chat_close{
+    background: url(/img/portlet-remove-icon.png) no-repeat;
+    width: 11px;
+    cursor: pointer;
+}
+
+/*公用的*/
+#tqmall-chat-section .hidden {
+    visibility: hidden!important;
+    display: none!important;
+}
+
+#tqmall-chat-section .final_time{
+    position: absolute;
+    right: 11px;
+    top: 23px;
+    color: #C0C9CC !important;
+}
+
+#tqmall-chat-section .back_white{
+    background-color: #FFFFFF;
+}
+#tqmall-chat-section .back_grey{
+    background-color: #EEEEEE;
+}
+/*冒泡*/
+#tqmall-chat-section .badge {
+    position: relative;
+    right: 16px;
+    top: -18px;
+
+    font-size: 11px !important;
+    font-weight: 300;
+    text-align: center;
+    padding: 3px 6px 3px 6px;
+    -webkit-border-radius: 12px !important;
+    -moz-border-radius: 12px !important;
+    border-radius: 12px !important;
+    text-shadow: none !important;
+    vertical-align: middle;
+    display: inline-block;
+    min-width: 10px;
+    line-height: 1;
+    color: #fff !important;
+}
+#tqmall-chat-section .badge:empty {
+    background-color: transparent;
+}
+#tqmall-chat-section .badge-danger {
+    background: #F3565D none;
+}
+
+
+
+.btn {
+    padding: 7px 14px;
+    font-size: 14px;
+    outline: none !important;
+    background-image: none !important;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    border: 1px solid transparent;
+}

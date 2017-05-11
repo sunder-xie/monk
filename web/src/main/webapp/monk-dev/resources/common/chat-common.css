@@ -1,0 +1,203 @@
+
+/*公用*/
+.main_chat_section span{
+    font-family: "Helvetica","SimSun";
+    color: #7892ad;
+    font-size: 12px;
+}
+
+.main_chat_section pre{
+    text-align: left;
+    font-family: "Helvetica","SimSun";
+    margin: 0;
+    font-size: inherit;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.main_chat_section pre img{
+    height: auto;
+
+    min-height: 24px;
+    min-width: 35px;
+
+    max-width: 350px;
+    max-height: 240px;
+}
+
+.grey{
+    color:#7892ad !important;
+}
+.back-grey{
+    background-color:#7892ad !important;
+}
+
+.hidden {
+    visibility: hidden!important;
+    display: none!important;
+}
+
+/*圆形图片*/
+.main_chat_section img{
+    vertical-align: middle;
+    border: 0;
+    max-width: none;
+    margin: 10px 0;
+    height: 40px;
+    display: inline-block;
+}
+.img-circle {
+    border-radius: 100%;
+}
+
+/*冒泡*/
+.main_chat_section .badge {
+    position: relative;
+    display: inline-block !important;
+    left: 106px;
+    top: 15px;
+
+    font-size: 11px !important;
+    font-weight: 300;
+    text-align: center;
+    padding: 3px 6px 3px 6px;
+    -webkit-border-radius: 12px !important;
+    -moz-border-radius: 12px !important;
+    border-radius: 12px !important;
+    text-shadow: none !important;
+    vertical-align: middle;
+    min-width: 10px;
+    line-height: 1;
+    color: #fff !important;
+}
+.main_chat_section .badge:empty {
+    background-color: transparent;
+}
+
+.main_chat_section .badge-blue{
+    background:#05afe4 none;
+}
+.main_chat_section .badge-danger {
+    background: #F3565D none;
+}
+
+
+
+.main_chat_section .btn,
+.chat-default-btn{
+    padding: 7px 14px;
+    font-size: 14px;
+    outline: none !important;
+    background-image: none !important;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    border: 1px solid transparent;
+    border-radius: 12px ;
+}
+
+.main_chat_section .btn-red{
+
+}
+
+.main_chat_section .btn-blue{
+    background-color: #f6fafe;
+}
+
+.main_chat_section .btn-blue:hover,
+.main_chat_section .btn-blue:focus,
+.main_chat_section .btn-blue:active{
+    background-color: #cadbec;
+}
+
+.chat-expand-blue{
+    color: white;
+    background-color: #4b6c8b;
+    width: 140px;
+    height: 30px;
+    line-height: 0 !important;
+}
+.chat-expand-blue i,
+.chat-expand-blue span{
+    color: white;
+}
+
+.expand_btn_close{
+    background-color: #dfebf6;
+    color: #567494;
+}
+
+
+/*loading*/
+ .loading-message {
+    display: inline-block;
+    min-width: 125px;
+    padding: 10px;
+    margin: 0 auto;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    /*background-color: #4b6c8b;*/
+}
+ .block-spinner-bar {
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+}
+ .block-spinner-bar .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+.block-spinner-bar .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+ .block-spinner-bar > div {
+    background: #6fa7d7;
+}
+.block-spinner-bar > div {
+    margin: 0 2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 100% !important;
+    display: inline-block;
+    -webkit-animation: bounceDelay 1.4s infinite ease-in-out;
+    animation: bounceDelay 1.4s infinite ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+ .loading-message span{
+    display: block;
+}
+
+@-webkit-keyframes bounceDelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+    }
+}
+@keyframes bounceDelay {
+    0%, 80%, 100% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}

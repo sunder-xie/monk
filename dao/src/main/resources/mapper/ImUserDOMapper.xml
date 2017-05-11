@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tqmall.data.monk.dao.mapper.ImUserDOMapper" >
+  <resultMap id="BaseResultMap" type="com.tqmall.data.monk.bean.entity.ImUserDO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_deleted" property="isDeleted" jdbcType="CHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="sys_id" property="sysId" jdbcType="INTEGER" />
+    <result column="sys_name" property="sysName" jdbcType="VARCHAR" />
+    <result column="ali_uid" property="aliUid" jdbcType="VARCHAR" />
+    <result column="ali_password" property="aliPassword" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_nick_name" property="userNickName" jdbcType="VARCHAR" />
+    <result column="user_pic" property="userPic" jdbcType="VARCHAR" />
+    <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+    <result column="user_type" property="userType" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, is_deleted, gmt_create, gmt_modified, sys_id, sys_name, ali_uid, ali_password, 
+    user_name, user_nick_name, user_pic,user_phone,user_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from im_user
+    where is_deleted = 'N' AND id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from im_user
+    where id = #{id}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.tqmall.data.monk.bean.entity.ImUserDO" >
+    insert ignore into im_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+        gmt_create,
+        gmt_modified,
+      <if test="sysId != null" >
+        sys_id,
+      </if>
+      <if test="sysName != null" >
+        sys_name,
+      </if>
+      <if test="aliUid != null" >
+        ali_uid,
+      </if>
+      <if test="aliPassword != null" >
+        ali_password,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userNickName != null" >
+        user_nick_name,
+      </if>
+      <if test="userPic != null" >
+        user_pic,
+      </if>
+      <if test="userPhone != null" >
+        user_phone,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted},
+      </if>
+      now(),now(),
+      <if test="sysId != null" >
+        #{sysId},
+      </if>
+      <if test="sysName != null" >
+        #{sysName},
+      </if>
+      <if test="aliUid != null" >
+        #{aliUid},
+      </if>
+      <if test="aliPassword != null" >
+        #{aliPassword},
+      </if>
+      <if test="userName != null" >
+        #{userName},
+      </if>
+      <if test="userNickName != null" >
+        #{userNickName},
+      </if>
+      <if test="userPic != null" >
+        #{userPic},
+      </if>
+      <if test="userPhone != null" >
+        #{userPhone},
+      </if>
+      <if test="userType != null" >
+        #{userType},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tqmall.data.monk.bean.entity.ImUserDO" >
+    update im_user
+    <set >
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted},
+      </if>
+        gmt_modified = now(),
+      <if test="sysId != null" >
+        sys_id = #{sysId},
+      </if>
+      <if test="sysName != null" >
+        sys_name = #{sysName},
+      </if>
+      <if test="aliUid != null" >
+        ali_uid = #{aliUid},
+      </if>
+      <if test="aliPassword != null" >
+        ali_password = #{aliPassword},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName},
+      </if>
+      <if test="userNickName != null" >
+        user_nick_name = #{userNickName},
+      </if>
+      <if test="userPic != null" >
+        user_pic = #{userPic},
+      </if>
+      <if test="userPhone != null" >
+        user_phone = #{userPhone},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+
+  <select id="selectBySys" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from im_user
+    where is_deleted = 'N'
+    and sys_id = #{sysId}
+    and sys_name = #{sysName}
+  </select>
+
+  <select id="selectByUid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from im_user
+    where is_deleted = 'N'
+    and ali_uid = #{uid}
+  </select>
+</mapper>

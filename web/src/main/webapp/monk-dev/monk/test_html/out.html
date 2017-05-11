@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>外部系统接入im测试页面</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+    </head>
+    <body>
+
+        <img src="" id="pic">
+        <button id="open">open</button>
+
+    </body>
+
+
+
+    <script src="/monk-dev/resources/jquery.min.js" type="text/javascript"></script>
+
+    <!-- build:js ../resources/chat/chat-min.js -->
+    <!-- IE8及以下支持JSON -->
+    <!--[if lt IE 9]>
+    <script src="https://g.alicdn.com/aliww/ww/json/json.js" charset="utf-8"></script>
+    <![endif]-->
+    <!-- WSDK-->
+    <script src="https://g.alicdn.com/aliww/h5.imsdk/2.1.1/scripts/yw/wsdk.js" charset="utf-8"></script>
+
+    <!--公用的接口提供-->
+    <script src="/monk-dev/resources/js/constantsJS/constants.js" type="text/javascript"></script>
+    <script src="/monk-dev/resources/js/notify/notify.js" type="text/javascript"></script>
+
+    <!--socket-->
+    <script src="/monk-dev/resources/js/socket/socket.io.js" type="text/javascript"></script>
+    <script src="/monk-dev/resources/js/socket/socket.js" type="text/javascript"></script>
+    <script src="/monk-dev/resources/common/chat.js" type="text/javascript"></script>
+
+
+    <!--<script src="/monk-release/resources/chat/chat-min.js" type="text/javascript"></script>-->
+
+        <script>
+            $("#open").click(function () {
+                var html = $('#openWin').html();
+                if(html == undefined){
+                    $("body").append('<form id="openWin" action="http://www.cuplayer.com/player/PlayerCodeAs/2013/0110644.html" target="_blank" method="get"></form>');
+                }
+
+                $('#openWin').submit();
+
+            });
+
+            function solveImgFile(the_file){
+                //这里我们判断下类型如果不是图片就返回
+                var file_name = the_file.name;
+                var ext = file_name.substring(file_name.lastIndexOf("."), file_name.length).toUpperCase();
+                if (ext != ".PNG" && ext != ".JPG"&& ext != ".JPEG" && ext != ".BMP" ){
+//                    MMDChat.alertFunc("当前上传的文件不是支持的图片类型(png/jpg/jpeg/bmp)，请选择图片重新上传");
+                    return false;
+                }
+                var file_size = the_file.size;
+                if(file_size > 3*1024*1024){
+//                    MMDChat.alertFunc(undefined, "图片文件大于3MB，无法发送，请压缩后重新发送");
+                    return false;
+                }
+
+                var reader = new FileReader();
+                reader.readAsDataURL(the_file);
+                reader.onload = function (e) {
+                    var base_data = e.target.result;
+                    if (file_size > 300*1024) {    //图片大于300k需要base64压缩上传
+                        doPic("1", base_data);
+
+                    } else {
+                        doPic(undefined, base_data);
+                    }
+                }
+            }
+
+            function doPic(is_need_ya, base_data) {
+                var hearder = base_data.split(",")[0];
+                var result_data = base_data.split(",")[1];
+
+
+//                MMDChat.alertFunc("发送图片", loading_html,'<button class="btn">发送</button>');
+                if (is_need_ya != undefined) {
+                    //需要压缩
+                    result_data = reduceImg(base_data)
+                }
+                $("#pic").attr("src",hearder+","+result_data)
+            }
+
+
+            //h5 canvas压缩图片
+            function reduceImg(data) {
+                var _canvas = document.createElement('canvas');
+                var img = new Image();
+                var _context = _canvas.getContext('2d');
+                img.src = data;
+                var scale = (1000 * 1024 / (img.naturalWidth * img.naturalHeight)).toString();//求压缩比例
+                if(Number(scale) > 1){
+                    scale = 1
+                }
+                _canvas.width = img.naturalWidth * scale;
+                _canvas.height = img.naturalHeight * scale;
+                _context.drawImage(img, 0, 0, _canvas.width, _canvas.height);
+                var src = _canvas.toDataURL('image/jpeg');
+                var base64Img = src.split(",")[1];
+                return base64Img;
+            }
+
+            /*====拖拽处理图片====*/
+
+            //拖进
+            //var chat_drag = $('body');
+            document.addEventListener('dragenter', function(e) {
+                e.preventDefault();
+            }, false);
+
+            // //拖离
+            document.addEventListener('dragleave', function(e) {
+            }, false);
+
+            //拖来拖去
+            document.addEventListener('dragover', function(e) {
+                e.preventDefault();
+            }, false);
+
+            //扔下
+            document.addEventListener('drop', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var files = e.target.files || e.dataTransfer.files;
+                dropHandler(files)
+            }, false);
+
+            var dropHandler = function(files) {
+                //若无选择指定聊天对象,则ctrl+v不生效
+                for(var i=0;i<files.length;i++){
+                    var file = files[i];
+                    solveImgFile(file);
+                }
+            };
+
+
+        </script>
+
+
+
+</html>

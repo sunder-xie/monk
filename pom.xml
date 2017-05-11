@@ -1,0 +1,480 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.tqmall.data</groupId>
+  <artifactId>monk</artifactId>
+  <version>${monk.version}</version>
+  <modules>
+    <module>web</module>
+    <module>dao</module>
+    <module>bean</module>
+    <module>common</module>
+    <module>exterior</module>
+    <module>biz</module>
+    <module>monk-client</module>
+    <module>server</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <name>monk</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- 当前项目版本 -->
+    <monk.version>1.0.0-SNAPSHOT</monk.version>
+    <!-- athena-client版本 -->
+    <!--<athena.client.version>1.0.3</athena.client.version>-->
+    <!-- error code版本 -->
+    <error.code.version>1.0.0-SNAPSHOT</error.code.version>
+    <!-- spring版本 -->
+    <spring.version>4.2.4.RELEASE</spring.version>
+    <!--mybatis版本号 -->
+    <mybatis.version>3.2.6</mybatis.version>
+
+    <!-- 公司公用jar -->
+    <tqmall.core.version>1.0.4-SNAPSHOT</tqmall.core.version>
+
+    <!--外部包的版本号-->
+    <monk.client.version>1.0.1</monk.client.version>
+    <uc.client.version>1.0.1</uc.client.version>
+    <stall.client.version>2.1.8</stall.client.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!--start dubbo引用的外部包-->
+      <dependency>
+        <groupId>com.tqmall.ucenter</groupId>
+        <artifactId>ucenter-client</artifactId>
+        <version>${uc.client.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.tqmall.core</groupId>
+            <artifactId>tqmall-core-common</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.tqmall.tqmallstall</groupId>
+        <artifactId>tqmallstall-client</artifactId>
+        <version>${stall.client.version}</version>
+        <exclusions>
+          <exclusion>
+              <groupId>joda-time</groupId>
+              <artifactId>joda-time</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.tqmall.core</groupId>
+            <artifactId>tqmall-core-common</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!--end dubbo引用的外部包-->
+
+      <!-- 公司公用jar -->
+      <dependency>
+        <groupId>com.tqmall.core</groupId>
+        <artifactId>tqmall-core-common</artifactId>
+        <version>${tqmall.core.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.tqmall.data</groupId>
+        <artifactId>bean</artifactId>
+        <version>${monk.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.tqmall.data</groupId>
+        <artifactId>common</artifactId>
+        <version>${monk.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.tqmall.data</groupId>
+        <artifactId>dao</artifactId>
+        <version>${monk.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.tqmall.data</groupId>
+        <artifactId>biz</artifactId>
+        <version>${monk.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.tqmall.data</groupId>
+        <artifactId>exterior</artifactId>
+        <version>${monk.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.tqmall.data</groupId>
+        <artifactId>web</artifactId>
+        <version>${monk.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.tqmall.data</groupId>
+        <artifactId>server</artifactId>
+        <version>${monk.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.tqmall.data</groupId>
+        <artifactId>monk-client</artifactId>
+        <version>${monk.client.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.9</version>
+        <!-- 表示开发的时候引入，发布的时候不会加载此包 -->
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.tqmall.zenith</groupId>
+        <artifactId>errorcode</artifactId>
+        <version>${error.code.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- jetty 相关 -->
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-server</artifactId>
+        <version>9.3.0.M1</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-webapp</artifactId>
+        <version>9.3.0.M1</version>
+        <scope>test</scope>
+      </dependency>
+
+      <!-- spring 相关 -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.freemarker</groupId>
+        <artifactId>freemarker</artifactId>
+        <version>2.3.23</version>
+      </dependency>
+
+      <!-- dubbo 相关 -->
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>2.5.3</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.jboss.netty</groupId>
+            <artifactId>netty</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.zookeeper</groupId>
+        <artifactId>zookeeper</artifactId>
+        <version>3.4.6</version>
+        <exclusions>
+          <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.101tec</groupId>
+        <artifactId>zkclient</artifactId>
+        <version>0.5</version>
+        <exclusions>
+          <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!--redis-->
+      <dependency>
+        <groupId>redis.clients</groupId>
+        <artifactId>jedis</artifactId>
+        <version>2.7.3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.16.6</version>
+      </dependency>
+
+      <!-- json -->
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.6.3</version>
+      </dependency>
+
+      <!-- date -->
+      <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>2.7</version>
+      </dependency>
+
+      <!-- log -->
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.12</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>1.7.12</version>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.1.3</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.logback-extensions</groupId>
+        <artifactId>logback-ext-spring</artifactId>
+        <version>0.1.2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>18.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>4.4.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+      </dependency>
+
+
+      <!--数据库-->
+      <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>${mybatis.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis-spring</artifactId>
+        <version>1.2.2</version>
+      </dependency>
+
+      <!-- 导入Mysql数据库链接jar包 -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.30</version>
+      </dependency>
+
+      <!--数据库连接池-->
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.0.15</version>
+      </dependency>
+
+      <!--netty-socket-->
+      <dependency>
+        <groupId>com.corundumstudio.socketio</groupId>
+        <artifactId>netty-socketio</artifactId>
+        <version>1.7.8</version>
+      </dependency>
+
+      <!--ali-yunwang-sdk-->
+      <dependency>
+        <groupId>com.tqmall.taobao</groupId>
+        <artifactId>yunwang</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <exclusions>
+          <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+
+  <build>
+    <pluginManagement>
+
+      <plugins>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.2.1</version>
+        </plugin>
+
+        <!-- maven auto-config -->
+        <plugin>
+          <groupId>com.alibaba.citrus.tool</groupId>
+          <artifactId>autoconfig-maven-plugin</artifactId>
+          <version>1.2</version>
+          <configuration>
+            <!-- 读取项目路径下的 antx.properties -->
+            <userProperties>${user.dir}/antx.properties</userProperties>
+            <exploding>true</exploding>
+          </configuration>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>autoconfig</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+
+        <!--maven打包 忽略开发的dev文件-->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.6</version>
+          <configuration>
+            <!--todo 忽略webapp下面的文件 -->
+            <packagingExcludes>
+              <!--WEB-INF/classes/config/,-->
+              <!--monk-dev/-->
+            </packagingExcludes>
+
+          </configuration>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+
+
+  </build>
+</project>

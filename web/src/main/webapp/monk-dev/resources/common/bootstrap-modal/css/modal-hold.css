@@ -1,0 +1,183 @@
+/*拦截框样式*/
+
+#chat_from_monk_modal {
+    -webkit-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+    transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+    position: absolute;
+    overflow: visible;
+    outline: none;
+    margin-top: 0;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    right: auto;
+    padding: 0;
+    width: 500px;
+    margin-left: -250px;
+    z-index: 9998;
+    overflow-y: auto !important;
+}
+
+#chat_from_monk_modal span{
+    padding: 10px 0;
+}
+
+/*弹出层*/
+.chat_from_monk_modal-scrollable {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden !important;
+    overflow-y: auto !important;
+    z-index: 10051 !important;
+}
+
+#chat_from_monk_modal .modal.fade.in {
+    top: 50%;
+}
+
+#chat_from_monk_modal .modal-open .modal {
+    overflow-x: hidden;
+}
+
+#all_chat_hold .fade.in {
+    opacity: 1;
+}
+
+/*主体*/
+#all_chat_hold  .modal-section {
+    margin: 16px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    max-height: 100%;
+}
+
+#all_chat_hold  .modal-header {
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #4b6c8b;
+}
+
+#all_chat_hold  .modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    text-align: center;
+}
+
+#all_chat_hold  .modal-body {
+    /*position: relative;*/
+    text-align: center;
+    padding: 15px;
+    max-height: none;
+    overflow: visible;
+    overflow-x: hidden;
+
+}
+
+#all_chat_hold  .modal-body > .img{
+    height: 300px;
+    line-height: 300px;
+}
+
+#all_chat_hold  .modal-footer {
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+/*红叉叉*/
+#all_chat_hold  .red.btn {
+    color: #FFFFFF;
+    background-color: #d84a38;
+}
+
+#all_chat_hold  .model-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    padding: 0 !important;
+    border-radius: 16px !important;
+}
+
+
+#all_chat_hold  .model-close > img{
+    position: absolute;
+    top: 3px;
+    right: 6px;
+
+    margin: initial;
+    height: auto;
+}
+
+/*遮罩层*/
+#all_chat_hold  .modal-backdrop, #all_chat_hold  .modal-backdrop.fade.in {
+    z-index: 10050;
+    opacity: 0.9;
+    filter: alpha(opacity=70);
+    background-color: #333 !important;
+}
+
+#all_chat_hold  .modal-backdrop {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    border: 0;
+    outline: none;
+}
+
+/*普通*/
+#all_chat_hold  .fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+/*阴影*/
+#all_chat_hold .modal-backdrop{
+    z-index: 10050 !important;
+}
+
+
+/*======截图流程页面*/
+#all_chat_hold .monk_chat_modal .cut_show{
+    height: 450px;
+}
+#all_chat_hold .monk_chat_modal .cut_show img{
+    height: auto;
+    width: 80%;
+}
+#all_chat_hold .monk_chat_modal .cut_show .title {
+    font-size: 18px;
+    padding-bottom: 6px;
+    color: #4b6c8b;
+}
+
+#all_chat_hold .monk_chat_modal .cut_show .title > i{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+#all_chat_hold .monk_chat_modal .cut_show span{
+    display: inline-block;
+    width: 290px;
+    font-size: 14px;
+}
+
+#all_chat_hold .monk_chat_modal .cut_show i{
+    color:#4b6c8b
+}

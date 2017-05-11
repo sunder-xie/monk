@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <!-- 应用名称 -->
+    <dubbo:application name="Monk" organization="Data" owner="rui.bai" />
+
+    <!-- 注册中心 -->
+    <dubbo:registry protocol="zookeeper" address="${zookeeper.address}" />
+
+    <!--自动寻找监控中心-->
+    <dubbo:monitor protocol="registry"/>
+
+    <!-- 端口 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.port}" />
+
+
+    <!--提供-->
+    <dubbo:provider timeout="60000" />
+
+    <!-- 发送消息服务 -->
+    <bean id="monkSendMessageService" class="com.tqmall.data.monk.server.MonkSendMessageServiceImpl"/>
+    <dubbo:service interface="com.tqmall.data.monk.client.service.MonkSendMessageService"
+                   ref="monkSendMessageService" version="${dubbo.provider.version}" owner="xigeng.zhong" />
+    <!--基础服务-->
+    <bean id="monkService" class="com.tqmall.data.monk.server.MonkServiceImpl"/>
+    <dubbo:service interface="com.tqmall.data.monk.client.service.MonkService"
+                   ref="monkService" version="${dubbo.provider.version}" owner="xigeng.zhong" />
+
+    <!--消费-->
+    <dubbo:reference interface="com.tqmall.ucenter.service.shop.RpcShopInfoService" id="rpcShopInfoService" version="${dubbo.uc.service.version}" check="false"/>
+    <dubbo:reference interface="com.tqmall.tqmallstall.service.openplatform.RpcSellerService" id="rpcSellerService" version="${dubbo.stall.service.version}" check="false"/>
+
+
+</beans>

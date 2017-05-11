@@ -1,0 +1,221 @@
+.modal.fade {
+    top: -100%;
+    -webkit-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+    transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+}
+
+.monk_chat_modal.modal {
+    position: absolute;
+    overflow: visible;
+    outline: none;
+    margin-top: 0;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    right: auto;
+    padding: 0;
+    width: 500px;
+    margin-left: -250px;
+    z-index: 9997;
+    overflow-y: auto !important;
+}
+
+/*弹出层*/
+.modal-scrollable {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden !important;
+    overflow-y: auto !important;
+    z-index: 10051 !important;
+}
+
+.monk_chat_modal .modal.fade.in {
+    top: 50%;
+    /*top: 37%;*/
+}
+
+.monk_chat_modal .modal-open .modal {
+    overflow-x: hidden;
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+/*主体*/
+.monk_chat_modal .modal-section {
+    margin: 16px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    max-height: 100%;
+}
+
+.monk_chat_modal .modal-header {
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #4b6c8b;
+}
+
+.monk_chat_modal .modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    text-align: center;
+}
+
+.monk_chat_modal .modal-body {
+    /*position: relative;*/
+    text-align: center;
+    padding: 15px;
+    max-height: none;
+    overflow: visible;
+    overflow-x: hidden;
+
+}
+
+.monk_chat_modal .modal-body > .img{
+    height: 300px;
+    line-height: 300px;
+}
+.monk_chat_modal .modal-body > .img > img {
+    margin: 0;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.monk_chat_modal .modal-footer {
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+/*红叉叉*/
+.monk_chat_modal .red.btn {
+    color: #FFFFFF;
+    background-color: #d84a38;
+}
+
+.monk_chat_modal .model-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    padding: 0 !important;
+    border-radius: 16px !important;
+}
+
+.monk_chat_modal .model-close > i {
+    font-size: 22px;
+}
+
+.monk_chat_modal .model-close > img{
+    position: absolute;
+    top: 3px;
+    right: 6px;
+
+    margin: initial;
+    height: auto;
+}
+
+/*遮罩层*/
+.modal-backdrop, .modal-backdrop.fade.in {
+    z-index: 10050;
+    opacity: 0.9;
+    filter: alpha(opacity=70);
+    background-color: #333 !important;
+}
+
+.modal-backdrop {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    border: 0;
+    outline: none;
+}
+
+/*普通*/
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+/*图片*/
+
+.monk_chat_modal.modal_img {
+    width: 100%;
+    margin-left: -50%;
+}
+
+.monk_chat_modal.modal_img .modal-body{
+    height: inherit;
+    line-height: inherit;
+}
+
+.monk_chat_modal.modal_img .modal-section {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.monk_chat_modal.modal_img .modal-footer {
+    border: 0;
+}
+
+.monk_chat_modal.modal_img img {
+    height: inherit;
+    width: inherit;
+    max-height: 700px;
+}
+
+/*阴影*/
+.modal-backdrop{
+    z-index: 10050 !important;
+}
+
+
+/*======截图流程页面*/
+.monk_chat_modal .cut_show{
+    height: 450px;
+}
+.monk_chat_modal .cut_show img{
+    height: auto;
+    width: 80%;
+}
+.monk_chat_modal .cut_show .title {
+    font-size: 18px;
+    padding-bottom: 6px;
+    color: #4b6c8b;
+}
+
+.monk_chat_modal .cut_show .title > i{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.monk_chat_modal .cut_show span{
+    display: inline-block;
+    width: 290px;
+    font-size: 14px;
+}
+
+.monk_chat_modal .cut_show i{
+    color:#4b6c8b
+}
